@@ -703,6 +703,12 @@ a:hover {
   gap: 48px;
 }
 
+.footer-logo {
+  height: 32px;
+  width: auto;
+  margin-bottom: 8px;
+}
+
 .footer-brand h3 {
   font-size: 20px;
   font-weight: 700;

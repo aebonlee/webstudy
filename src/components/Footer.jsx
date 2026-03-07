@@ -9,6 +9,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
+          <img src="/dreamit-logo.svg" alt="DreamIT Biz" className="footer-logo" />
           <h3>
             <span style={{ color: '#4A8FE7' }}>Vibe</span>{' '}
             <span style={{ color: '#60A5FA' }}>Backend</span>{' '}
