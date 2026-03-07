@@ -1,0 +1,68 @@
+import { Link } from 'react-router-dom';
+import Hero from '../components/Hero';
+import {
+  FiServer, FiGithub, FiDatabase, FiCloud,
+  FiHelpCircle, FiBookOpen, FiArrowRight
+} from 'react-icons/fi';
+
+const categories = [
+  { to: '/backend', icon: <FiServer size={24} />, title: '백엔드 기초', description: '서버, API, 네트워크 등 백엔드 개발의 핵심 개념을 학습합니다.', badge: '6 토픽' },
+  { to: '/github', icon: <FiGithub size={24} />, title: 'GitHub 활용', description: 'Git 버전관리와 GitHub를 활용한 협업 워크플로우를 배웁니다.', badge: '7 토픽' },
+  { to: '/database', icon: <FiDatabase size={24} />, title: '데이터베이스', description: 'Supabase와 관계형 데이터베이스의 설계 및 활용법을 익힙니다.', badge: '8 토픽' },
+  { to: '/deploy', icon: <FiCloud size={24} />, title: '배포 가이드', description: 'Render.com 등을 활용해 서비스를 실제 서버에 배포합니다.', badge: '5 토픽' },
+  { to: '/qna', icon: <FiHelpCircle size={24} />, title: 'Q&A', description: '백엔드 학습 중 자주 묻는 질문과 답변을 모았습니다.' },
+  { to: '/education', icon: <FiBookOpen size={24} />, title: '교육과정', description: '체계적인 커리큘럼으로 백엔드 개발을 단계별로 학습하세요.' },
+];
+
+const roadmapSteps = [
+  { title: '백엔드 기초 이해', desc: '서버와 클라이언트의 관계, API의 개념, HTTP 통신의 원리를 학습합니다.' },
+  { title: 'GitHub 활용', desc: '코드 버전관리와 협업을 위한 Git과 GitHub 사용법을 익힙니다.' },
+  { title: '데이터베이스 구축', desc: 'Supabase를 활용하여 데이터를 저장하고 관리하는 방법을 배웁니다.' },
+  { title: '서비스 배포', desc: 'Render.com으로 완성된 프로젝트를 실제 서버에 배포합니다.' },
+];
+
+export default function Home() {
+  return (
+    <>
+      <Hero
+        title="바이브코딩 백엔드 완전정복"
+        subtitle="바이브코딩으로 백엔드 개발을 배우고, 나만의 서비스를 완성하세요. 서버, API, 데이터베이스, 배포까지 한 번에 학습합니다."
+        stats={[
+          { number: '6', label: '학습 영역' },
+          { number: '30+', label: '실전 토픽' },
+          { number: '100+', label: '코드 예제' },
+        ]}
+      />
+
+      <div className="main-section">
+        <h2 className="section-title">학습 카테고리</h2>
+        <p className="section-subtitle">바이브코딩에 필요한 백엔드 지식을 체계적으로 학습하세요</p>
+
+        <div className="card-grid">
+          {categories.map((cat, i) => (
+            <Link to={cat.to} key={i} className="card" style={{ textDecoration: 'none' }}>
+              <div className="card-icon">{cat.icon}</div>
+              <div className="card-title">{cat.title}</div>
+              <div className="card-desc">{cat.description}</div>
+              {cat.badge && <span className="card-badge">{cat.badge}</span>}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="main-section">
+        <h2 className="section-title">학습 로드맵</h2>
+        <p className="section-subtitle">단계별로 따라가며 백엔드 개발의 전체 흐름을 이해하세요</p>
+
+        <div className="roadmap">
+          {roadmapSteps.map((step, i) => (
+            <div className="roadmap-item" key={i}>
+              <h4>Step {i + 1}. {step.title}</h4>
+              <p>{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
