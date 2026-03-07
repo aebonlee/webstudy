@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 48" fill="none">
   <defs>
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#4A8FE7"/>
       <stop offset="100%" style="stop-color:#60A5FA"/>
     </linearGradient>
   </defs>
-  <text x="0" y="34" font-family="'Noto Sans KR', Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="1.5" fill="#F1F5F9">Dream</text>
-  <text x="102" y="34" font-family="'Noto Sans KR', Arial, sans-serif" font-weight="800" font-size="30" letter-spacing="1.5" fill="url(#grad)">IT</text>
-  <text x="140" y="34" font-family="'Noto Sans KR', Arial, sans-serif" font-weight="700" font-size="30" letter-spacing="1.5" fill="#94A3B8">Biz</text>
+  <text x="0" y="34" font-family="'Noto Sans KR', Arial, sans-serif" font-weight="800" font-size="28" letter-spacing="3"><tspan fill="#F1F5F9">Dream</tspan><tspan fill="url(#grad)">IT</tspan><tspan fill="#F1F5F9">&#160; </tspan><tspan fill="#94A3B8" font-weight="700">Biz</tspan></text>
 </svg>
