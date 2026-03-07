@@ -38,12 +38,14 @@ export default function Footer() {
 
         <div className="footer-section">
           <h4>Quick Links</h4>
-          <Link to="/backend" className="footer-link">백엔드 기초</Link>
-          <Link to="/github" className="footer-link">GitHub 활용</Link>
-          <Link to="/database" className="footer-link">데이터베이스</Link>
-          <Link to="/deploy" className="footer-link">배포 가이드</Link>
-          <Link to="/qna" className="footer-link">Q&A</Link>
-          <Link to="/education" className="footer-link">교육과정</Link>
+          <div className="footer-links-grid">
+            <Link to="/backend" className="footer-link">백엔드 기초</Link>
+            <Link to="/github" className="footer-link">GitHub 활용</Link>
+            <Link to="/database" className="footer-link">데이터베이스</Link>
+            <Link to="/deploy" className="footer-link">배포 가이드</Link>
+            <Link to="/qna" className="footer-link">Q&A</Link>
+            <Link to="/education" className="footer-link">교육과정</Link>
+          </div>
         </div>
 
         <div className="footer-section">

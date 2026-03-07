@@ -730,6 +730,12 @@ a:hover {
   color: #CBD5E1;
 }
 
+.footer-section .footer-links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
 .footer-link {
   display: block;
   padding: 6px 0;
