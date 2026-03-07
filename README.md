@@ -1,16 +1,29 @@
-# React + Vite
+# Vibe Backend Study
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+바이브코딩에 필요한 백엔드 지식을 종합적으로 학습할 수 있는 교육 사이트
 
-Currently, two official plugins are available:
+## 주요 기능
+- **백엔드 기초**: 서버, API, Node.js, HTTP, JSON
+- **GitHub 활용**: Git 명령어, Branch, PR, Actions, Pages
+- **데이터베이스**: Supabase (Auth/Storage/RLS), Render.com PostgreSQL
+- **배포 가이드**: Render.com, 자동 배포, 도메인 연결
+- **Q&A**: 자주 묻는 질문 8개
+- **교육과정**: 입문~고급 4단계 커리큘럼
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기술 스택
+- React 19 + Vite 7
+- React Router DOM v7
+- CSS Variables 기반 디자인 시스템
+- 5가지 컬러 테마 + 다크모드
 
-## React Compiler
+## 개발 환경
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 빌드 & 배포
+```bash
+npm run build
+# GitHub Pages 자동 배포 (push to main)
+```
