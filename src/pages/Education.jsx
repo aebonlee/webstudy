@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import { educationData } from '../data/learningData';
-import { FiCheck } from 'react-icons/fi';
+import { FiCheck, FiMail, FiPhone, FiMessageSquare, FiClock } from 'react-icons/fi';
 
 export default function Education() {
   return (
@@ -31,6 +31,31 @@ export default function Education() {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="edu-contact-box">
+          <h3 className="edu-contact-title">교육 문의</h3>
+          <p className="edu-contact-desc">
+            교육 과정에 대한 자세한 문의는 아래 연락처로 연락주세요.
+          </p>
+          <div className="edu-contact-list">
+            <div className="edu-contact-item">
+              <FiMail size={18} />
+              <span>aebon@dreamitbiz.com</span>
+            </div>
+            <div className="edu-contact-item">
+              <FiPhone size={18} />
+              <span>010-3700-0629</span>
+            </div>
+            <div className="edu-contact-item">
+              <FiMessageSquare size={18} />
+              <span>카카오톡: aebon</span>
+            </div>
+            <div className="edu-contact-item">
+              <FiClock size={18} />
+              <span>평일: 09:00 ~ 18:00</span>
+            </div>
+          </div>
         </div>
       </div>
     </>

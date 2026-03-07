@@ -1169,6 +1169,50 @@ a:hover {
   border-bottom: none;
 }
 
+/* Education Contact Box */
+.edu-contact-box {
+  margin-top: 48px;
+  padding: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.edu-contact-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.edu-contact-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.edu-contact-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  justify-content: center;
+}
+
+.edu-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+.edu-contact-item svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
 /* ===== 17. Sub Navigation ===== */
 .sub-nav {
   position: sticky;
