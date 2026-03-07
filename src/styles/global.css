@@ -741,15 +741,31 @@ a:hover {
 }
 
 .footer-bottom {
-  max-width: 1280px;
-  margin: 40px auto 0;
-  padding-top: 24px;
+  margin-top: 40px;
+  padding: 20px 0;
   border-top: 1px solid rgba(255,255,255,0.08);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   font-size: 13px;
   color: #64748B;
+}
+
+.footer-bottom-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-bottom-item {
+  white-space: nowrap;
+}
+
+.footer-bottom-sep {
+  margin: 0 12px;
+  opacity: 0.4;
 }
 
 .footer-contact-item {
@@ -759,6 +775,56 @@ a:hover {
   padding: 6px 0;
   font-size: 14px;
   color: #94A3B8;
+}
+
+/* Family Site Dropdown */
+.family-site {
+  margin-top: 20px;
+  position: relative;
+}
+
+.family-site-btn {
+  width: 100%;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  color: #CBD5E1;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.family-site-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.family-site-dropdown {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #1E293B;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.family-site-dropdown a {
+  display: block;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #94A3B8;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.family-site-dropdown a:hover {
+  background: rgba(255,255,255,0.06);
+  color: #FFFFFF;
 }
 
 /* ===== 12. Search Modal ===== */
@@ -1346,10 +1412,15 @@ a:hover {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .footer-bottom {
+  .footer-bottom-inner {
     flex-direction: column;
-    gap: 8px;
-    text-align: center;
+    gap: 6px;
+    text-align: left;
+    align-items: flex-start;
+    padding: 0 16px;
+  }
+  .footer-bottom-sep {
+    display: none;
   }
   .layout-with-sidebar {
     flex-direction: column;
