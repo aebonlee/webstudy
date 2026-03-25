@@ -1,5 +1,7 @@
 {
   "name": "vibe-backend-study",
+  "description": "웹 백엔드 학습",
+  "homepage": "https://webstudy.dreamitbiz.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",

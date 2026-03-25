@@ -30,3 +30,9 @@ glossaryData_decoded.js
 
 # Claude settings
 .claude/
+
+# environment variables
+.env
+.env.*
+.env.local
+.env.production
