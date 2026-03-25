@@ -1392,6 +1392,11 @@ a:hover {
   to { transform: translateX(0); }
 }
 
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .fade-up {
   animation: slideUp var(--transition-normal) forwards;
 }
