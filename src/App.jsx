@@ -11,6 +11,7 @@ import DatabaseGuide from './pages/DatabaseGuide'
 import DeployGuide from './pages/DeployGuide'
 import QnA from './pages/QnA'
 import Education from './pages/Education'
+import NotFound from './pages/NotFound'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,6 +36,7 @@ function App() {
         <Route path="/deploy" element={<DeployGuide />} />
         <Route path="/qna" element={<QnA />} />
         <Route path="/education" element={<Education />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
