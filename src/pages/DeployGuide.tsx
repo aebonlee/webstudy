@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import CodeBlock from '../components/CodeBlock';
 import { deployTopics } from '../data/learningData';
 
-export default function DeployGuide() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+export default function DeployGuide(): React.ReactElement {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const topic = deployTopics[selectedIndex];
 
   return (

@@ -1,5 +1,5 @@
+import React, { useEffect, lazy, Suspense } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { useEffect, lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchModal from './components/SearchModal'
@@ -14,7 +14,7 @@ const QnA = lazy(() => import('./pages/QnA'))
 const Education = lazy(() => import('./pages/Education'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
-function ScrollToTop() {
+function ScrollToTop(): null {
   const { pathname } = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -22,7 +22,7 @@ function ScrollToTop() {
   return null
 }
 
-function LoadingFallback() {
+function LoadingFallback(): React.ReactElement {
   return (
     <div style={{
       display: 'flex',
@@ -47,7 +47,7 @@ function LoadingFallback() {
   )
 }
 
-function App() {
+function App(): React.ReactElement {
   return (
     <>
       <ScrollToTop />

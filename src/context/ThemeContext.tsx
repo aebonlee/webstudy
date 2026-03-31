@@ -1,23 +1,41 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const ThemeContext = createContext();
+const COLORS = ['blue', 'red', 'green', 'purple', 'orange'] as const;
 
-const COLORS = ['blue', 'red', 'green', 'purple', 'orange'];
+type ColorTheme = typeof COLORS[number];
 
-export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(() => {
+interface ThemeContextValue {
+  isDark: boolean;
+  toggleTheme: () => void;
+  colorTheme: ColorTheme;
+  setColorTheme: React.Dispatch<React.SetStateAction<ColorTheme>>;
+  COLORS: readonly string[];
+  searchOpen: boolean;
+  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  mobileMenuOpen: boolean;
+  setMobileMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const ThemeContext = createContext<ThemeContextValue | null>(null);
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export function ThemeProvider({ children }: ThemeProviderProps): React.ReactElement {
+  const [isDark, setIsDark] = useState<boolean>(() => {
     const saved = localStorage.getItem('theme');
     if (saved) return saved === 'dark';
     const hour = new Date().getHours();
     return hour >= 18 || hour < 6;
   });
 
-  const [colorTheme, setColorTheme] = useState(() => {
-    return localStorage.getItem('colorTheme') || 'blue';
+  const [colorTheme, setColorTheme] = useState<ColorTheme>(() => {
+    return (localStorage.getItem('colorTheme') as ColorTheme) || 'blue';
   });
 
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState<boolean>(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
@@ -30,7 +48,7 @@ export function ThemeProvider({ children }) {
   }, [colorTheme]);
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
         setSearchOpen(prev => !prev);
@@ -44,9 +62,9 @@ export function ThemeProvider({ children }) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const toggleTheme = () => setIsDark(prev => !prev);
+  const toggleTheme = (): void => setIsDark(prev => !prev);
 
-  const value = {
+  const value: ThemeContextValue = {
     isDark,
     toggleTheme,
     colorTheme,
@@ -65,7 +83,7 @@ export function ThemeProvider({ children }) {
   );
 }
 
-export function useTheme() {
+export function useTheme(): ThemeContextValue {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme must be used within ThemeProvider');
   return context;

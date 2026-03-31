@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import { faqData } from '../data/learningData';
 import { FiChevronDown } from 'react-icons/fi';
 
-export default function QnA() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
+export default function QnA(): React.ReactElement {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const toggle = (i) => setExpandedIndex(expandedIndex === i ? null : i);
+  const toggle = (i: number): void => setExpandedIndex(expandedIndex === i ? null : i);
 
   return (
     <>

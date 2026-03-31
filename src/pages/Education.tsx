@@ -1,8 +1,9 @@
+import React from 'react';
 import Hero from '../components/Hero';
 import { educationData } from '../data/learningData';
 import { FiCheck, FiMail, FiPhone, FiMessageSquare, FiClock } from 'react-icons/fi';
 
-export default function Education() {
+export default function Education(): React.ReactElement {
   return (
     <>
       <Hero

@@ -1,10 +1,16 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FiCopy, FiCheck } from 'react-icons/fi';
 
-export default function CodeBlock({ code, language = 'javascript', title }) {
-  const [copied, setCopied] = useState(false);
+interface CodeBlockProps {
+  code: string;
+  language?: string;
+  title?: string;
+}
 
-  const handleCopy = async () => {
+export default function CodeBlock({ code, language = 'javascript', title }: CodeBlockProps): React.ReactElement {
+  const [copied, setCopied] = useState<boolean>(false);
+
+  const handleCopy = async (): Promise<void> => {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);

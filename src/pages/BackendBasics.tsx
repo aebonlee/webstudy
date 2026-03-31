@@ -1,22 +1,22 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import CodeBlock from '../components/CodeBlock';
-import { databaseTopics } from '../data/learningData';
+import { backendTopics } from '../data/learningData';
 
-export default function DatabaseGuide() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const topic = databaseTopics[selectedIndex];
+export default function BackendBasics(): React.ReactElement {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const topic = backendTopics[selectedIndex];
 
   return (
     <>
       <Hero
-        title="데이터베이스 가이드"
-        subtitle="Supabase와 관계형 데이터베이스를 활용하여 데이터를 효율적으로 관리하는 방법을 학습합니다."
+        title="백엔드 기초"
+        subtitle="서버, API, 네트워크 등 백엔드 개발의 핵심 개념을 체계적으로 학습합니다."
       />
 
       <div className="sub-nav">
         <div className="sub-nav-inner">
-          {databaseTopics.map((t, i) => (
+          {backendTopics.map((t, i) => (
             <button
               key={i}
               className={`sub-nav-tab${selectedIndex === i ? ' active' : ''}`}
@@ -48,7 +48,7 @@ export default function DatabaseGuide() {
               </div>
             ))}
             {topic.code && (
-              <CodeBlock code={topic.code} language={topic.codeLang || 'sql'} />
+              <CodeBlock code={topic.code} language={topic.codeLang || 'javascript'} />
             )}
           </div>
         </div>

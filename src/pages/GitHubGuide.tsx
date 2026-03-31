@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import CodeBlock from '../components/CodeBlock';
 import { githubTopics } from '../data/learningData';
 
-export default function GitHubGuide() {
-  const [selectedIndex, setSelectedIndex] = useState(0);
+export default function GitHubGuide(): React.ReactElement {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const topic = githubTopics[selectedIndex];
 
   return (

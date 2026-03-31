@@ -1,4 +1,17 @@
-export default function Hero({ title, subtitle, stats }) {
+import React from 'react';
+
+interface HeroStat {
+  number: string;
+  label: string;
+}
+
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  stats?: HeroStat[];
+}
+
+export default function Hero({ title, subtitle, stats }: HeroProps): React.ReactElement {
   return (
     <section className="hero">
       <div className="hero-content">

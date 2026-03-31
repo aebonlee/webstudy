@@ -1,11 +1,25 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import {
   FiServer, FiGithub, FiDatabase, FiCloud,
-  FiHelpCircle, FiBookOpen, FiArrowRight
+  FiHelpCircle, FiBookOpen
 } from 'react-icons/fi';
 
-const categories = [
+interface Category {
+  to: string;
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  badge?: string;
+}
+
+interface RoadmapStep {
+  title: string;
+  desc: string;
+}
+
+const categories: Category[] = [
   { to: '/backend', icon: <FiServer size={24} />, title: '백엔드 기초', description: '서버, API, 네트워크 등 백엔드 개발의 핵심 개념을 학습합니다.', badge: '6 토픽' },
   { to: '/github', icon: <FiGithub size={24} />, title: 'GitHub 활용', description: 'Git 버전관리와 GitHub를 활용한 협업 워크플로우를 배웁니다.', badge: '7 토픽' },
   { to: '/database', icon: <FiDatabase size={24} />, title: '데이터베이스', description: 'Supabase와 관계형 데이터베이스의 설계 및 활용법을 익힙니다.', badge: '8 토픽' },
@@ -14,14 +28,14 @@ const categories = [
   { to: '/education', icon: <FiBookOpen size={24} />, title: '교육과정', description: '체계적인 커리큘럼으로 백엔드 개발을 단계별로 학습하세요.' },
 ];
 
-const roadmapSteps = [
+const roadmapSteps: RoadmapStep[] = [
   { title: '백엔드 기초 이해', desc: '서버와 클라이언트의 관계, API의 개념, HTTP 통신의 원리를 학습합니다.' },
   { title: 'GitHub 활용', desc: '코드 버전관리와 협업을 위한 Git과 GitHub 사용법을 익힙니다.' },
   { title: '데이터베이스 구축', desc: 'Supabase를 활용하여 데이터를 저장하고 관리하는 방법을 배웁니다.' },
   { title: '서비스 배포', desc: 'Render.com으로 완성된 프로젝트를 실제 서버에 배포합니다.' },
 ];
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <>
       <Hero

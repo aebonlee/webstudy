@@ -1,9 +1,10 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiX } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { navItems } from './Navbar';
 
-export default function MobileDrawer() {
+export default function MobileDrawer(): React.ReactElement | null {
   const { mobileMenuOpen, setMobileMenuOpen } = useTheme();
   const location = useLocation();
 

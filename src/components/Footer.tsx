@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiMessageSquare, FiClock, FiChevronDown } from 'react-icons/fi';
 
-export default function Footer() {
-  const [familySiteOpen, setFamilySiteOpen] = useState(false);
+export default function Footer(): React.ReactElement {
+  const [familySiteOpen, setFamilySiteOpen] = useState<boolean>(false);
 
   return (
     <footer className="footer">

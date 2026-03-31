@@ -2,8 +2,45 @@
 // Vibe Backend Study - 학습 콘텐츠 데이터
 // ============================================================
 
+// ===== 타입 정의 =====
+export interface SearchItem {
+  title: string;
+  category: string;
+  path: string;
+  icon: string;
+}
+
+export interface ContentSection {
+  subtitle?: string;
+  text?: string;
+  items?: string[];
+}
+
+export interface Topic {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+  content: ContentSection[];
+  code: string;
+  codeLang: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface EducationCourse {
+  id: string;
+  level: string;
+  title: string;
+  description: string;
+  topics: string[];
+}
+
 // ===== 1. 검색 데이터 =====
-export const searchData = [
+export const searchData: SearchItem[] = [
   { title: '서버란 무엇인가', category: '백엔드 기초', path: '/backend', icon: '🖥️' },
   { title: 'API와 REST API', category: '백엔드 기초', path: '/backend', icon: '🔌' },
   { title: 'Node.js & Express', category: '백엔드 기초', path: '/backend', icon: '📦' },
@@ -33,7 +70,7 @@ export const searchData = [
 ];
 
 // ===== 2. 백엔드 기초 토픽 =====
-export const backendTopics = [
+export const backendTopics: Topic[] = [
   {
     id: 'server',
     title: '서버란 무엇인가',
@@ -242,7 +279,7 @@ await fetch('/api/users/1', { method: 'DELETE' });
 ];
 
 // ===== 3. GitHub 활용 토픽 =====
-export const githubTopics = [
+export const githubTopics: Topic[] = [
   {
     id: 'git-basics',
     title: 'Git 기본 명령어',
@@ -485,7 +522,7 @@ coverage/`,
 ];
 
 // ===== 4. 데이터베이스 토픽 =====
-export const databaseTopics = [
+export const databaseTopics: Topic[] = [
   {
     id: 'db-concept',
     title: '데이터베이스 개념',
@@ -785,7 +822,7 @@ app.get('/api/users', async (req, res) => {
 ];
 
 // ===== 5. 배포 토픽 =====
-export const deployTopics = [
+export const deployTopics: Topic[] = [
   {
     id: 'render-web',
     title: 'Render.com 웹서비스',
@@ -932,7 +969,7 @@ curl https://api.render.com/deploy/srv-xxxxx?key=yyyyy`,
 ];
 
 // ===== 6. FAQ 데이터 =====
-export const faqData = [
+export const faqData: FaqItem[] = [
   {
     question: '바이브코딩에서 백엔드가 왜 필요한가요?',
     answer: 'AI가 프론트엔드 코드를 생성해주더라도 데이터를 영구적으로 저장하고 관리하려면 백엔드(서버+데이터베이스)가 필요합니다. 사용자 인증, 결제 처리, 파일 업로드 등은 서버 없이 안전하게 처리할 수 없습니다. Supabase 같은 BaaS를 활용하면 서버 코드 없이도 백엔드 기능을 구현할 수 있습니다.',
@@ -968,7 +1005,7 @@ export const faqData = [
 ];
 
 // ===== 7. 교육과정 데이터 =====
-export const educationData = [
+export const educationData: EducationCourse[] = [
   {
     id: 'beginner',
     level: '입문',

@@ -1,6 +1,16 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Card({ icon, title, description, badge, to, onClick }) {
+interface CardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  badge?: string;
+  to?: string;
+  onClick?: () => void;
+}
+
+export default function Card({ icon, title, description, badge, to, onClick }: CardProps): React.ReactElement {
   const content = (
     <>
       <div className="card-icon">{icon}</div>
