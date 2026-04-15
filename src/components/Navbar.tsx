@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FiSearch, FiSun, FiMoon, FiMenu } from 'react-icons/fi';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FiSearch, FiSun, FiMoon, FiMenu, FiLogIn, FiLogOut } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 interface NavItem {
   path: string;
@@ -28,7 +29,9 @@ const colorMap: Record<string, string> = {
 
 export default function Navbar(): React.ReactElement {
   const location = useLocation();
+  const navigate = useNavigate();
   const { isDark, toggleTheme, colorTheme, setColorTheme, COLORS, setSearchOpen, setMobileMenuOpen } = useTheme();
+  const { isAuthenticated, logout, user } = useAuth();
 
   return (
     <nav className="navbar">
@@ -73,6 +76,20 @@ export default function Navbar(): React.ReactElement {
               />
             ))}
           </div>
+
+          {isAuthenticated ? (
+            <button
+              className="nav-action-btn"
+              onClick={async () => { await logout(); navigate('/'); }}
+              title={`로그아웃 (${user?.email ?? ''})`}
+            >
+              <FiLogOut />
+            </button>
+          ) : (
+            <Link to="/login" className="nav-action-btn" title="로그인">
+              <FiLogIn />
+            </Link>
+          )}
 
           <button className="hamburger-btn" onClick={() => setMobileMenuOpen(true)}>
             <FiMenu />
