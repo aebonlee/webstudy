@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0046C8"/>
+      <stop offset="100%" style="stop-color:#4A8FE7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="100" r="200" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="150" cy="530" r="150" fill="rgba(255,255,255,0.06)"/>
+  <text x="600" y="240" text-anchor="middle" font-family="sans-serif" font-size="72" font-weight="800" fill="white">Vibe Backend Study</text>
+  <text x="600" y="320" text-anchor="middle" font-family="sans-serif" font-size="32" font-weight="400" fill="rgba(255,255,255,0.9)">바이브코딩 백엔드 완전정복</text>
+  <line x1="450" y1="360" x2="750" y2="360" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <text x="600" y="420" text-anchor="middle" font-family="sans-serif" font-size="24" fill="rgba(255,255,255,0.8)">서버 · API · GitHub · Supabase · Render.com · 배포</text>
+  <text x="600" y="470" text-anchor="middle" font-family="sans-serif" font-size="20" fill="rgba(255,255,255,0.6)">30+ 토픽 | 100+ 코드 예제 | 실전 프로젝트</text>
+</svg>
