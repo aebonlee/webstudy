@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SearchModal from './components/SearchModal'
 import MobileDrawer from './components/MobileDrawer'
+import AdminGuard from './components/AdminGuard'
 
 const Home = lazy(() => import('./pages/Home'))
 const BackendBasics = lazy(() => import('./pages/BackendBasics'))
@@ -12,6 +13,8 @@ const DatabaseGuide = lazy(() => import('./pages/DatabaseGuide'))
 const DeployGuide = lazy(() => import('./pages/DeployGuide'))
 const QnA = lazy(() => import('./pages/QnA'))
 const Education = lazy(() => import('./pages/Education'))
+const Login = lazy(() => import('./pages/Login'))
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop(): null {
@@ -63,6 +66,8 @@ function App(): React.ReactElement {
           <Route path="/deploy" element={<DeployGuide />} />
           <Route path="/qna" element={<QnA />} />
           <Route path="/education" element={<Education />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin/dashboard/*" element={<AdminGuard><AdminDashboard /></AdminGuard>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

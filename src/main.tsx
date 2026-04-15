@@ -1,8 +1,11 @@
 import React, { StrictMode, Component } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { AuthProvider } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import './styles/global.css'
+import './styles/auth.css'
+import './styles/admin.css'
 import App from './App'
 
 interface ErrorBoundaryProps {
@@ -49,9 +52,11 @@ createRoot(rootElement).render(
   <StrictMode>
     <ErrorBoundary>
       <BrowserRouter>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </AuthProvider>
       </BrowserRouter>
     </ErrorBoundary>
   </StrictMode>,
