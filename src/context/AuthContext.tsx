@@ -305,7 +305,7 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
   useIdleTimeout({
   enabled: !!user,
   onTimeout: () => {
-  supabase.auth.signOut();
+  supabase?.auth.signOut();
   clearSharedSession();
   },
   });
