@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FiSearch, FiSun, FiMoon, FiMenu, FiLogIn, FiLogOut } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
@@ -10,7 +10,6 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { path: '/', label: '홈' },
   { path: '/backend', label: '백엔드 기초' },
   { path: '/github', label: 'GitHub 활용' },
   { path: '/database', label: '데이터베이스' },
@@ -29,9 +28,9 @@ const colorMap: Record<string, string> = {
 
 export default function Navbar(): React.ReactElement {
   const location = useLocation();
-  const navigate = useNavigate();
   const { isDark, toggleTheme, colorTheme, setColorTheme, COLORS, setSearchOpen, setMobileMenuOpen } = useTheme();
   const { isAuthenticated, logout, user } = useAuth();
+  const [colorPickerOpen, setColorPickerOpen] = useState(false);
 
   return (
     <nav className="navbar">
@@ -63,26 +62,34 @@ export default function Navbar(): React.ReactElement {
             {isDark ? <FiSun /> : <FiMoon />}
           </button>
 
-          <div className="color-picker">
-            {COLORS.map(color => (
-              <button
-                key={color}
-                className={`color-dot ${colorTheme === color ? 'active' : ''}`}
-                style={{
-                  background: colorMap[color] || '#0046C8',
-                }}
-                onClick={() => setColorTheme(color as Parameters<typeof setColorTheme>[0])}
-                title={color}
-              />
-            ))}
+          <div
+            className="color-picker-wrap"
+            onMouseEnter={() => setColorPickerOpen(true)}
+            onMouseLeave={() => setColorPickerOpen(false)}
+          >
+            <button
+              className="color-picker-trigger"
+              style={{ background: colorMap[colorTheme] || '#0046C8' }}
+              title="테마 색상"
+              onClick={() => setColorPickerOpen(v => !v)}
+            />
+            {colorPickerOpen && (
+              <div className="color-picker-popup">
+                {COLORS.map(color => (
+                  <button
+                    key={color}
+                    className={`color-dot ${colorTheme === color ? 'active' : ''}`}
+                    style={{ background: colorMap[color] || '#0046C8' }}
+                    onClick={() => { setColorTheme(color as Parameters<typeof setColorTheme>[0]); setColorPickerOpen(false); }}
+                    title={color}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           {isAuthenticated ? (
-            <button
-              className="nav-action-btn"
-              onClick={async () => { await logout(); navigate('/'); }}
-              title={`로그아웃 (${user?.email ?? ''})`}
-            >
+            <button className="nav-action-btn" onClick={() => logout()} title={`로그아웃 (${user?.email ?? ''})`}>
               <FiLogOut />
             </button>
           ) : (
