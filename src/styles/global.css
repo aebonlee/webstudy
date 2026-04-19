@@ -281,9 +281,9 @@ a:hover {
   transition: transform var(--transition-fast), border-color var(--transition-fast);
 }
 
-.color-picker-wrap:hover .color-picker-trigger {
-  border-color: var(--text-primary);
-  transform: scale(1.18);
+.color-picker-wrap:hover .nav-action-btn {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .color-picker-popup {

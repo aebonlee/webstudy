@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiSearch, FiSun, FiMoon, FiMenu, FiLogIn, FiLogOut } from 'react-icons/fi';
+import { IoColorPaletteOutline } from 'react-icons/io5';
 import { useTheme } from '../context/ThemeContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -68,11 +69,13 @@ export default function Navbar(): React.ReactElement {
             onMouseLeave={() => setColorPickerOpen(false)}
           >
             <button
-              className="color-picker-trigger"
-              style={{ background: colorMap[colorTheme] || '#0046C8' }}
+              className="nav-action-btn"
+              style={{ color: colorMap[colorTheme] || '#0046C8' }}
               title="테마 색상"
               onClick={() => setColorPickerOpen(v => !v)}
-            />
+            >
+              <IoColorPaletteOutline />
+            </button>
             {colorPickerOpen && (
               <div className="color-picker-popup">
                 {COLORS.map(color => (
