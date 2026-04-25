@@ -3,6 +3,8 @@ import type { User, Session, AuthError } from '@supabase/supabase-js';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
 import { ADMIN_EMAILS } from '../config/admin';
 import { useIdleTimeout } from '../hooks/useIdleTimeout';
+import ProfileCompleteModal from '../components/ProfileCompleteModal';
+import PaymentNudgePopup from '../components/PaymentNudgePopup';
 
 interface AccountBlock {
   status: string;
@@ -301,6 +303,24 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
   }), [user, session, loading, error, isAdmin, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, loginWithKakao, logout, resetPassword]);
 
 
+  const [_userProfile, _setUserProfile] = useState<any>(null);
+  const _loadUserProfile = useCallback(async (uid: string) => {
+    try {
+      const { data } = await supabase!.from('user_profiles').select('name,phone').eq('id', uid).maybeSingle();
+      _setUserProfile(data);
+    } catch { _setUserProfile(null); }
+  }, []);
+
+  useEffect(() => {
+    if (user) _loadUserProfile(user.id);
+  }, [user, _loadUserProfile]);
+
+  const refreshProfile = useCallback(async () => {
+    if (user) await _loadUserProfile(user.id);
+  }, [user, _loadUserProfile]);
+
+  const needsProfileCompletion = !!user && !!_userProfile && !_userProfile.name;
+
   // 10분 무동작 세션 타임아웃
   useIdleTimeout({
   enabled: !!user,
@@ -313,6 +333,12 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
   return (
     <AuthContext.Provider value={value}>
       {children}
+      {needsProfileCompletion && user && (
+        <ProfileCompleteModal user={user} onComplete={refreshProfile} />
+      )}
+      {!!user && !needsProfileCompletion && (
+        <PaymentNudgePopup user={user} siteSlug="webstudy" />
+      )}
     </AuthContext.Provider>
   );
 }
