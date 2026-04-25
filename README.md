@@ -25,9 +25,28 @@ npm run dev
 ## 빌드 & 배포
 ```bash
 npm run build
-# GitHub Pages 자동 배포 (push to main)
+npx gh-pages -d dist
 ```
 
+## 주요 컴포넌트
+
+| 컴포넌트 | 설명 |
+|----------|------|
+| `CodeBlock` | 코드 블록 (구문 강조, 복사 기능) |
+| `ProfileCompleteModal` | 회원가입 후 프로필 정보 입력 모달 |
+| `PaymentNudgePopup` | 라이선스 미보유 사용자 결제 안내 팝업 |
+| `AdminDashboard` | 관리자 대시보드 |
+
+## 변경 이력
+
+최신 변경사항은 [CHANGELOG.md](./CHANGELOG.md)를 참고하세요.
+
+| 날짜 | 내용 |
+|------|------|
+| 2026-04-25 | ProfileCompleteModal, PaymentNudgePopup AuthContext 연동 |
+| 2026-03-26 | Lazy Loading, ErrorBoundary, BrowserRouter 전환 |
+
+---
 
 ## License / 라이선스
 

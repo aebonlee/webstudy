@@ -1,5 +1,36 @@
 # Changelog
 
+## [2026-04-25] ProfileCompleteModal, PaymentNudgePopup AuthContext 연동
+
+### 수정 내용
+
+#### 1. ProfileCompleteModal AuthContext 연동
+- 기존 `src/components/ProfileCompleteModal.tsx` 파일이 미연동 상태였음
+- AuthContext에 import 및 프로필 로딩 로직 추가
+- `needsProfileCompletion` 조건: 로그인 + 프로필 존재 + 이름 미입력 시 모달 표시
+
+#### 2. PaymentNudgePopup AuthContext 연동
+- 기존 `src/components/PaymentNudgePopup.tsx` 파일이 미연동 상태였음
+- AuthContext에 import 및 JSX 렌더 추가
+- 프로필 입력 완료 후에만 결제 팝업 표시 (`!needsProfileCompletion` 조건)
+- siteSlug: `"webstudy"` 설정
+
+#### 3. AuthContext 프로필 로딩 로직 추가
+- `_userProfile` 상태 + `_loadUserProfile` 함수 추가
+- `refreshProfile` 콜백으로 모달 완료 후 프로필 갱신
+- `useEffect`로 로그인 시 자동 프로필 로딩
+
+### 수정 파일
+| 파일 | 변경 |
+|------|------|
+| `src/context/AuthContext.tsx` | ProfileCompleteModal/PaymentNudgePopup import, 프로필 로딩 로직, JSX 렌더 추가 |
+
+### 빌드 확인
+- `npm run build` 성공
+- GitHub Pages 배포 완료 (commit: `a4c36f8`)
+
+---
+
 ## [2026-03-26] Lazy Loading, ErrorBoundary, BrowserRouter 전환
 
 ### 수정 내용
